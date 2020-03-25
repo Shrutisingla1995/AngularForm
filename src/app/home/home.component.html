@@ -1,0 +1,135 @@
+<div class="container">
+    <h1><img src="../assets/flowericon.PNG" />ABC Portal</h1>
+    <form #portalForm = "ngForm" (ngSubmit)="onSubmit(portalForm)">
+        <div class="form-group">
+            <h3>Company Detail</h3>
+            <label for="name">Company Name<span class="text-danger">*</span>:</label>
+            <input type="text" class="form-control" name="name" ngModel required>
+        </div>
+        <div class="form-group">
+            <label for="desc">Company Description:</label>
+            <input type="text" class="form-control" name="desc" ngModel>
+        </div>
+        <div class="form-group">
+            <label for="website">Company Web Site<span class="text-danger">*</span>:</label>
+            <input type="text" class="form-control" name="website" ngModel required>
+        </div>
+        <div class="row">
+            <div class="form-group fifty">
+                <div class=" col-12">
+                    <label for="businessOwn">Business Ownership<span class="text-danger">*</span>:</label>
+                    <select name="businessOwn" ngModel>
+                        <option value="" selected>Public</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group fifty">
+                <div class="col-12">
+                    <label for="businessStruc">Business Structure<span class="text-danger">*</span>:</label>
+                    <select name="businessStruc" ngModel>
+                        <option value="" selected>Limited Partnership</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <h3>Headquarter Address</h3>
+        <div class="row">
+            <div class="form-group fifty">
+                <div class=" col-12">
+                    <label for="straddress1">Street Address 1:</label>
+                    <input  ngModel type="text" class="form-control" name="straddress1" >
+                </div>
+            </div>
+            <div class="form-group fifty">
+                <div class=" col-12">
+                    <label for="straddress2">Street Address 2:</label>
+                    <input ngModel type="text" class="form-control" name="straddress2" >
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group fifty">
+                <div class=" col-12 ">
+                    <label for="city">City:</label>
+                    <input ngModel type="text" class="form-control" name="city" >
+                </div>
+            </div>
+            <div class="form-group fifty">
+                <div class="col-12 ">
+                    <label for="state">State</label>
+                    <select name="state" ngModel>
+                        <option value="" selected>Delhi</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <h3>Primary Contact</h3>
+        <div class="row">
+            <div class="form-group fifty">
+                <div class=" col-12">
+                    <label for="pfname">Primary Contact First Name:<span class="text-danger">*</span>:</label>
+                    <input ngModel type="text" class="form-control" name="pfname" required>
+                </div>
+            </div>
+            <div class="form-group fifty">
+                <div class=" col-12 ">
+                    <label for="plname">Primary Contact Last Name:<span class="text-danger">*</span>:</label>
+                    <input ngModel type="text" class="form-control" name="plname" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="plname">Primary Contact Job Title:<span class="text-danger">*</span>:</label>
+            <input ngModel type="text" class="form-control" name="plname" required>
+        </div>
+        <div class="row">
+            <div class="form-group fifty">
+                <div class=" col-12">
+                    <label for="pmail">Primary Contact Email:<span class="text-danger">*</span>:</label>
+                    <input ngModel type="text" class="form-control" name="pmail" required>
+                </div>
+            </div>
+            <div class="form-group fifty">
+                <div class=" col-12 ">
+                    <label for="pmon">Primary Mobile Number:<span class="text-danger">*</span>:</label>
+                    <input ngModel type="text" class="form-control" name="pmob" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group fifty">
+                <div class=" col-12 ">
+                    <label for="pex">Primary Phone number & Extension:<span class="text-danger">*</span>:</label>
+                    <input ngModel type="text" class="form-control" name="pex" required>
+                </div>
+            </div>
+            <div class="form-group fifty">
+                <div class=" col-12 ">
+                    <label for="pfax">Primary Fax Number:</label>
+                    <input ngModel type="text" class="form-control" name="pfax" >
+                </div>
+            </div>
+        </div>
+        <h3>Company Documents</h3>
+        <div class="doc-name">
+            <i class="fa fa-file-alt"></i>&nbsp;Articles of incorporation
+             <label for="upload1"><i class="fa fa-download" title="Upload"></i></label>
+             <input type="file" id="upload1" #photo accept="image/*" (change)="handleInputFile1($event.target.files,photo)">
+        </div>
+        <div class="doc-name">
+            <i class="fa fa-file-alt"></i>&nbsp;Certificate good standing
+            <label for="upload2"><i class="fa fa-download" title="Upload"></i></label>
+            <input type="file" id="upload2" #photo accept="image/*" (change)="handleInputFile2($event.target.files,photo)">        
+        </div>
+        <div class="doc-name">
+            <i class="fa fa-file-alt"></i>&nbsp;Evidence of Insurance 
+            <label for="upload3"><i class="fa fa-download" title="Upload"></i></label>
+            <input type="file" id="upload3" #photo accept="image/*" (change)="handleInputFile3($event.target.files,photo)">      
+        </div>
+        <h3>Select Labour types</h3>
+        <button type="submit" class="btn btn-success next-btn">Save & Next 
+            <i class="fa fa-chevron-right"></i>
+        </button>
+
+    </form>
+</div>
