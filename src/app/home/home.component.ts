@@ -30,8 +30,7 @@ portalForm:any;
       pex:['', Validators.required],
       pfax:[''],
       pmob:['', Validators.required],
-      labourType:[''],
-      selected: this._formBuilder.array([])
+      labourType: this._formBuilder.array([])
     });
     this.labourTypeDisplay = this.labourTypes.map(x => Object.assign({}, x));
   }
@@ -81,7 +80,7 @@ portalForm:any;
   }
   // on selecting checkboxes- labour type
   onSelect(data: String, isChecked: boolean) {
-    this.selectedArray = <FormArray>this.portalForm.controls.selected;
+    this.selectedArray = <FormArray>this.portalForm.controls.labourType;
     if(isChecked) {
       this.selectedArray.push(new FormControl(data));
     } else {
