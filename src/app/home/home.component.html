@@ -1,25 +1,27 @@
-<div class="container">
+<div class="container home-portal">
     <h1><img src="../assets/flowericon.PNG" />ABC Portal</h1>
     <form #portalForm = "ngForm" (ngSubmit)="onSubmit(portalForm)">
         <div class="form-group">
             <h3>Company Detail</h3>
             <label for="name">Company Name<span class="text-danger">*</span>:</label>
-            <input type="text" class="form-control" name="name" ngModel required>
+            <input type="text" class="form-control" placeholder="Enter the company name.." name="name" ngModel required>
         </div>
         <div class="form-group">
             <label for="desc">Company Description:</label>
-            <input type="text" class="form-control" name="desc" ngModel>
+            <input type="text" class="form-control" placeholder="Enter the company description.."  name="desc" ngModel>
         </div>
-        <div class="form-group">
+        <div class="form-group web">
             <label for="website">Company Web Site<span class="text-danger">*</span>:</label>
-            <input type="text" class="form-control" name="website" ngModel required>
+            <input type="text" class="form-control" placeholder="http://" (keyup)="checkURL($event)"   id="website" name="website" ngModel required>
         </div>
         <div class="row">
             <div class="form-group fifty">
                 <div class=" col-12">
                     <label for="businessOwn">Business Ownership<span class="text-danger">*</span>:</label>
                     <select name="businessOwn" ngModel>
-                        <option value="" selected>Public</option>
+                        <option value="" selected>Select Ownership Type</option>
+                        <option value="public">Public</option>
+                        <option value="private">Private</option>
                     </select>
                 </div>
             </div>
@@ -27,23 +29,25 @@
                 <div class="col-12">
                     <label for="businessStruc">Business Structure<span class="text-danger">*</span>:</label>
                     <select name="businessStruc" ngModel>
-                        <option value="" selected>Limited Partnership</option>
+                        <option value="" selected>Select Business Structure</option>
+                        <option value="Limited Partnership" >Limited Partnership</option>
                     </select>
                 </div>
             </div>
         </div>
+        <hr />
         <h3>Headquarter Address</h3>
         <div class="row">
             <div class="form-group fifty">
                 <div class=" col-12">
                     <label for="straddress1">Street Address 1:</label>
-                    <input  ngModel type="text" class="form-control" name="straddress1" >
+                    <input appGooglePlace (setAddress)="getAddressOnChange($event,LocationCtrl)" ngModel type="text" class="form-control" name="straddress1" >
                 </div>
             </div>
             <div class="form-group fifty">
                 <div class=" col-12">
                     <label for="straddress2">Street Address 2:</label>
-                    <input ngModel type="text" class="form-control" name="straddress2" >
+                    <input appGooglePlace (setAddress)="getAddressOnChange($event,LocationCtrl)"  ngModel type="text" class="form-control" name="straddress2" >
                 </div>
             </div>
         </div>
@@ -51,18 +55,21 @@
             <div class="form-group fifty">
                 <div class=" col-12 ">
                     <label for="city">City:</label>
-                    <input ngModel type="text" class="form-control" name="city" >
+                    <input appGooglePlace (setAddress)="getAddressOnChange($event,LocationCtrl)"  ngModel type="text" class="form-control" name="city" >
                 </div>
             </div>
             <div class="form-group fifty">
                 <div class="col-12 ">
                     <label for="state">State</label>
                     <select name="state" ngModel>
-                        <option value="" selected>Delhi</option>
+                        <option value="" selected>Select your state</option>
+                        <option value="Delhi" >Delhi</option>
+                        <option value="Hyderabad" >Hyderabad</option>
                     </select>
                 </div>
             </div>
         </div>
+        <hr />
         <h3>Primary Contact</h3>
         <div class="row">
             <div class="form-group fifty">
@@ -79,8 +86,8 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="plname">Primary Contact Job Title:<span class="text-danger">*</span>:</label>
-            <input ngModel type="text" class="form-control" name="plname" required>
+            <label for="pjob">Primary Contact Job Title:<span class="text-danger">*</span>:</label>
+            <input ngModel type="text" class="form-control" name="pjob" required>
         </div>
         <div class="row">
             <div class="form-group fifty">
@@ -92,7 +99,7 @@
             <div class="form-group fifty">
                 <div class=" col-12 ">
                     <label for="pmon">Primary Mobile Number:<span class="text-danger">*</span>:</label>
-                    <input ngModel type="text" class="form-control" name="pmob" required>
+                    <input ngModel maxlength="12" (keypress)="numberOnly($event)" type="text" class="form-control" name="pmob" required>
                 </div>
             </div>
         </div>
@@ -100,16 +107,17 @@
             <div class="form-group fifty">
                 <div class=" col-12 ">
                     <label for="pex">Primary Phone number & Extension:<span class="text-danger">*</span>:</label>
-                    <input ngModel type="text" class="form-control" name="pex" required>
+                    <input ngModel type="text" maxlength="12" (keypress)="numberOnly($event)" class="form-control" name="pex" required>
                 </div>
             </div>
             <div class="form-group fifty">
                 <div class=" col-12 ">
                     <label for="pfax">Primary Fax Number:</label>
-                    <input ngModel type="text" class="form-control" name="pfax" >
+                    <input ngModel type="text" maxlength="12" (keypress)="numberOnly($event)"  class="form-control" name="pfax" >
                 </div>
             </div>
         </div>
+        <hr />
         <h3>Company Documents</h3>
         <div class="doc-name">
             <i class="fa fa-file-alt"></i>&nbsp;Articles of incorporation
@@ -126,6 +134,7 @@
             <label for="upload3"><i class="fa fa-download" title="Upload"></i></label>
             <input type="file" id="upload3" #photo accept="image/*" (change)="handleInputFile3($event.target.files,photo)">      
         </div>
+        <hr />
         <h3>Select Labour types</h3>
         <button type="submit" class="btn btn-success next-btn">Save & Next 
             <i class="fa fa-chevron-right"></i>

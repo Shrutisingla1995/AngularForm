@@ -13,11 +13,23 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
+  numberOnly(event){
+    return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)));
+  }
+  checkURL(event){
+    var string = event.target.value;
+    if (!~string.indexOf("http")) {
+      string = "http://" + string;
+    }
+    event.target.value = string;
+    return event;
+  }
   onSubmit(form: NgForm) {
     console.log('Your form data : ', form.value);
     this.db.postForm(form.value).then(
       res => {
         alert('success');
+        form = null;
       }
     )
   }

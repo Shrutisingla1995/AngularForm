@@ -1,53 +1,57 @@
-form{
-    background: #f1f1f1;
-    border-radius: 10px;
-    padding: 20px;
-}
-select{
-    display: block;
-    padding: 7px;
-    border-radius: 5px;
-    border: 1px solid #ced4da;
-    width: 100%;
-}
-.container{
-    max-width: 900px;
-}
-h3{
-    color: grey;
-    font-size: 20px;
-}
-label{
- color: grey;
-}
-.form-group{
-    &.fifty{
-        width:50%;
+.home-portal{
+    &.container{
+        max-width: 900px;
     }
-}
-.fa{
-    font-size: 20px;
-    color: grey;
-    margin:0 10px;
-}
-.doc-name{
-    margin:5px 0;
-    #upload1,#upload2,#upload3{
-        display: none;
+    form{
+        background: #f1f1f1;
+        border-radius: 10px;
+        padding: 20px;
     }
-    .fa{
-        &:hover{
-            cursor: pointer;
-            color:black;
+    select{
+        display: block;
+        padding: 7px;
+        border-radius: 5px;
+        border: 1px solid #ced4da;
+        width: 100%;
+        color:grey;
+    }
+    h3{
+        color: grey;
+        font-size: 20px;
+    }
+    label{
+     color: grey;
+    }
+    .form-group{
+        &.fifty{
+            width:50%;
         }
     }
-}
-.next-btn{
     .fa{
-        color: white;
-        font-size: 13px;
+        font-size: 20px;
+        color: grey;
+        margin:0 10px;
     }
-    &:hover{
-        background:green;
+    .doc-name{
+        margin:5px 0;
+        #upload1,#upload2,#upload3{
+            display: none;
+        }
+        .fa{
+            &:hover{
+                cursor: pointer;
+                color:black;
+            }
+        }
+    }    
+    .next-btn{
+        .fa{
+            color: white;
+            font-size: 13px;
+        }
+        &:hover{
+            background:green;
+        }
     }
+    
 }

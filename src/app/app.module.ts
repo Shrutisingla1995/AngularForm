@@ -12,11 +12,13 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
+import { GoogleplaceDirective } from './google-place.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    GoogleplaceDirective
   ],
   imports: [
     BrowserModule,
