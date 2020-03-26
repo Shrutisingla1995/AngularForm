@@ -67,8 +67,8 @@
             margin:10px 0;
         }
         input[type="checkbox"]{
-            &:hover{
-                border:blue;
+            &:focus{
+                outline:none;
             }
         }
         .labour-type{
