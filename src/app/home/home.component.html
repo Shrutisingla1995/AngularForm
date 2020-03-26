@@ -1,6 +1,6 @@
 <div class="container home-portal">
     <h1><img src="../assets/flowericon.PNG" />ABC Portal</h1>
-    <form #portalForm = "ngForm" ngNativeValidate (submit)="onSubmit(portalForm)">
+    <form #portalForm = "ngForm"  (submit)="onSubmit(portalForm,$event)" ngNativeValidate>
         <div class="form-group">
             <h3>Company Detail</h3>
             <label for="name">Company Name<span class="text-danger">*</span>:</label>
@@ -122,22 +122,22 @@
         <div class="doc-name">
             <i class="fa fa-file-alt"></i>&nbsp;Articles of incorporation
              <label for="upload1"><i class="fa fa-download" title="Upload"></i></label>
-             <input type="file" id="upload1" #photo accept="image/*" (change)="handleInputFile1($event.target.files,photo)">
+             <input type="file" id="upload1" #photo accept="image/*" >
         </div>
         <div class="doc-name">
             <i class="fa fa-file-alt"></i>&nbsp;Certificate good standing
             <label for="upload2"><i class="fa fa-download" title="Upload"></i></label>
-            <input type="file" id="upload2" #photo accept="image/*" (change)="handleInputFile2($event.target.files,photo)">        
+            <input type="file" id="upload2" #photo accept="image/*">        
         </div>
         <div class="doc-name">
             <i class="fa fa-file-alt"></i>&nbsp;Evidence of Insurance 
             <label for="upload3"><i class="fa fa-download" title="Upload"></i></label>
-            <input type="file" id="upload3" #photo accept="image/*" (change)="handleInputFile3($event.target.files,photo)">      
+            <input type="file" id="upload3" #photo accept="image/*" >      
         </div>
         <hr />
         <h3>Select Labour types</h3>
         <div class="form-group labour-dropdown col-6">
-            <input type="text" placeholder="Search labour type here" name="labourType" [(ngModel)] = "searchType" (ngModelChange) = "search(searchType)">
+            <input type="text" placeholder="Search labour type here" name="labourType" (ngModelChange) = "search(searchType)" ngModel>
             <div *ngFor="let type of labourTypeDisplay">
                 <input type="checkbox" (change)="onSelect(type.id, $event.target.checked)" [checked]="type.checked">
                 <span class="labour-type">{{type.name}}</span>

@@ -25,7 +25,8 @@ export class PolicyService {
         addr1:value.straddress1,
         addr2:value.straddress2,
         business_own:value.businessOwn,
-        business_struc:value.businessStruc
+        business_struc:value.businessStruc,
+        labour_type:value.labourType
       });
     }
 }

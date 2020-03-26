@@ -25,8 +25,6 @@ export class HomeComponent implements OnInit {
   ];
   labourTypeDisplay = [];
   selectedArray;
-  dataCopy;
-
   ngOnInit() {
     this.Form = this._formBuilder.group({
       selected: this._formBuilder.array([])
@@ -47,44 +45,15 @@ export class HomeComponent implements OnInit {
     return event;
   }
   // on form submit
-  onSubmit(form: NgForm) {
+  onSubmit(form: NgForm,event) {
     console.log('Your form data : ', form.value);
+    event.preventDefault();
     this.db.postForm(form.value).then(
       res => {
-        alert('success');
-        form = null;
+        alert('Successful!');
       }
     )
   }
-// 3 uploads 
-  handleInputFile1(file: FileList, photo){
-    this.fileToUpload = file.item(0);
-    var reader = new FileReader();
-    reader.onload = (event:any) => {
-      // this.imageUrl = event.target.result;
-    }
-    reader.readAsDataURL(this.fileToUpload);
-    console.log(photo)
-  }
-  handleInputFile2(file: FileList, photo){
-    this.fileToUpload = file.item(0);
-    var reader = new FileReader();
-    reader.onload = (event:any) => {
-      // this.imageUrl = event.target.result;
-    }
-    reader.readAsDataURL(this.fileToUpload);
-    console.log(photo)
-  }
-  handleInputFile3(file: FileList, photo){
-    this.fileToUpload = file.item(0);
-    var reader = new FileReader();
-    reader.onload = (event:any) => {
-      // this.imageUrl = event.target.result;
-    }
-    reader.readAsDataURL(this.fileToUpload);
-    console.log(photo)
-  }
-
   // on selecting checkboxes- labour type
   onSelect(data: number, isChecked: boolean) {
     this.selectedArray = <FormArray>this.Form.controls.selected;
