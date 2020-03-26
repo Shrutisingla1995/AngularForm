@@ -10,7 +10,7 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { GoogleplaceDirective } from './google-place.directive';
 
@@ -18,7 +18,8 @@ import { GoogleplaceDirective } from './google-place.directive';
   declarations: [
     AppComponent,
     HomeComponent,
-    GoogleplaceDirective
+    GoogleplaceDirective,
+    
   ],
   imports: [
     BrowserModule,
@@ -29,6 +30,8 @@ import { GoogleplaceDirective } from './google-place.directive';
     AngularFireStorageModule,
     AngularFireMessagingModule,
     AngularFireDatabaseModule,
+    FormsModule,
+    ReactiveFormsModule,
     // AngularFireModule.initializeApp(firebase),
     AngularFireFunctionsModule
   ],

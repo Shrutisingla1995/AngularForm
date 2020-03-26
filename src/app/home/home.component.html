@@ -4,11 +4,11 @@
         <div class="form-group">
             <h3>Company Detail</h3>
             <label for="name">Company Name<span class="text-danger">*</span>:</label>
-            <input type="text" class="form-control" placeholder="Enter the company name.." name="name" ngModel required>
+            <input type="text" class="form-control" placeholder="Company name" name="name" ngModel required>
         </div>
         <div class="form-group">
             <label for="desc">Company Description:</label>
-            <input type="text" class="form-control" placeholder="Enter the company description.."  name="desc" ngModel>
+            <input type="text" class="form-control" placeholder="Company description"  name="desc" ngModel>
         </div>
         <div class="form-group web">
             <label for="website">Company Web Site<span class="text-danger">*</span>:</label>
@@ -75,31 +75,31 @@
             <div class="form-group fifty">
                 <div class=" col-12">
                     <label for="pfname">Primary Contact First Name:<span class="text-danger">*</span>:</label>
-                    <input ngModel type="text" class="form-control" name="pfname" required>
+                    <input ngModel type="text" placeholder="First name" class="form-control" name="pfname" required>
                 </div>
             </div>
             <div class="form-group fifty">
                 <div class=" col-12 ">
                     <label for="plname">Primary Contact Last Name:<span class="text-danger">*</span>:</label>
-                    <input ngModel type="text" class="form-control" name="plname" required>
+                    <input ngModel type="text" placeholder="Last name"  class="form-control" name="plname" required>
                 </div>
             </div>
         </div>
         <div class="form-group">
             <label for="pjob">Primary Contact Job Title:<span class="text-danger">*</span>:</label>
-            <input ngModel type="text" class="form-control" name="pjob" required>
+            <input ngModel type="text" class="form-control" placeholder="Job title"  name="pjob" required>
         </div>
         <div class="row">
             <div class="form-group fifty">
                 <div class=" col-12">
                     <label for="pmail">Primary Contact Email:<span class="text-danger">*</span>:</label>
-                    <input ngModel type="text" class="form-control" name="pmail" required>
+                    <input ngModel type="text" class="form-control" placeholder="Primary email id"  name="pmail" required>
                 </div>
             </div>
             <div class="form-group fifty">
                 <div class=" col-12 ">
                     <label for="pmon">Primary Mobile Number:<span class="text-danger">*</span>:</label>
-                    <input ngModel maxlength="12" (keypress)="numberOnly($event)" type="text" class="form-control" name="pmob" required>
+                    <input ngModel maxlength="12" (keypress)="numberOnly($event)" type="text" class="form-control" name="pmob" placeholder="Mobile number"  required>
                 </div>
             </div>
         </div>
@@ -107,13 +107,13 @@
             <div class="form-group fifty">
                 <div class=" col-12 ">
                     <label for="pex">Primary Phone number & Extension:<span class="text-danger">*</span>:</label>
-                    <input ngModel type="text" maxlength="12" (keypress)="numberOnly($event)" class="form-control" name="pex" required>
+                    <input ngModel type="text" maxlength="12" (keypress)="numberOnly($event)" class="form-control" name="pex" placeholder="Phone number with extension"  required>
                 </div>
             </div>
             <div class="form-group fifty">
                 <div class=" col-12 ">
                     <label for="pfax">Primary Fax Number:</label>
-                    <input ngModel type="text" maxlength="12" (keypress)="numberOnly($event)"  class="form-control" name="pfax" >
+                    <input ngModel type="text" placeholder="Fax number"  maxlength="12" (keypress)="numberOnly($event)"  class="form-control" name="pfax" >
                 </div>
             </div>
         </div>
@@ -136,6 +136,13 @@
         </div>
         <hr />
         <h3>Select Labour types</h3>
+        <div class="form-group labour-dropdown col-6">
+            <input type="text" placeholder="Search Labour Types .." name="labourType" [(ngModel)] = "searchType" (ngModelChange) = "search(searchType)">
+            <div *ngFor="let type of labourTypeDisplay">
+                <input type="checkbox" (change)="onSelect(type.id, $event.target.checked)" [checked]="type.checked">
+                <span class="labour-type">{{type.name}}</span>
+            </div>
+        </div>
         <button type="submit" class="btn btn-success next-btn">Save & Next 
             <i class="fa fa-chevron-right"></i>
         </button>
