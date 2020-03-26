@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { PolicyService } from '../policy.service';
-import { FormGroup, FormControl, FormBuilder, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, FormArray,ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
 
@@ -31,7 +31,9 @@ portalForm:any;
       pfax:[''],
       pmob:['', Validators.required],
       labourType:[''],
-    })
+      selected: this._formBuilder.array([])
+    });
+    this.labourTypeDisplay = this.labourTypes.map(x => Object.assign({}, x));
   }
 //initializing
   fileToUpload: File = null;
@@ -46,11 +48,9 @@ portalForm:any;
   ];
   labourTypeDisplay = [];
   selectedArray;
+
   ngOnInit() {
-    this.portalForm = this._formBuilder.group({
-      selected: this._formBuilder.array([])
-    });
-    this.labourTypeDisplay = this.labourTypes.map(x => Object.assign({}, x));
+    
   }
 // number only format 
   numberOnly(event){
@@ -69,11 +69,15 @@ portalForm:any;
   onSubmit(form: NgForm,event) {
     console.log('Your form data : ', form.value);
     event.preventDefault();
-    this.db.postForm(form.value).then(
-      res => {
-        alert('Successful!');
-      }
-    )
+    // if(this.portalForm.valid){
+      this.db.postForm(form.value).then(
+        res => {
+          alert('Successful!');
+        }
+      )
+    // }else{
+    //   alert('Please fill the required details *');
+    // }
   }
   // on selecting checkboxes- labour type
   onSelect(data: number, isChecked: boolean) {

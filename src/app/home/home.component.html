@@ -5,6 +5,9 @@
             <h3>Company Detail</h3>
             <label for="name">Company Name<span class="text-danger">*</span>:</label>
             <input type="text" class="form-control" maxlength="100" placeholder="Company name" formControlName="name"  required>
+            <div *ngIf=" portalForm.controls.name.errors" class="text-danger required-label">
+                <div *ngIf="!portalForm.controls.name.untouched">Company Name is required</div>
+            </div>
         </div>
         <div class="form-group">
             <label for="desc">Company Description:</label>
@@ -13,6 +16,9 @@
         <div class="form-group web">
             <label for="website">Company Web Site<span class="text-danger">*</span>:</label>
             <input type="text" class="form-control"  placeholder="http://" (keyup)="checkURL($event)"   id="website" formControlName="website"  required>
+            <div *ngIf=" portalForm.controls.website.errors" class="text-danger required-label">
+                <div *ngIf="!portalForm.controls.website.untouched">Company Website is required</div>
+            </div>
         </div>
         <div class="row">
             <div class="form-group fifty">
@@ -24,14 +30,20 @@
                         <option value="private">Private</option>
                     </select>
                 </div>
+                <div *ngIf=" portalForm.controls.businessOwn.errors" class="text-danger required-label">
+                    <div *ngIf="!portalForm.controls.businessOwn.untouched">Ownership Type is required</div>
+                </div>
             </div>
             <div class="form-group fifty">
                 <div class="col-12">
-                    <label for="businessStruc">Business Structure<span class="text-danger">*</span>:</label>
+                    <label for="businessStruc">Business Structure<span class="text-danger ">*</span>:</label>
                     <select formControlName="businessStruc" >
                         <option value="" selected>Select Business Structure</option>
                         <option value="Limited Partnership" >Limited Partnership</option>
                     </select>
+                </div>
+                <div *ngIf=" portalForm.controls.businessStruc.errors" class="text-danger required-label">
+                    <div *ngIf="!portalForm.controls.businessStruc.untouched">Business Structure is required</div>
                 </div>
             </div>
         </div>
@@ -74,20 +86,29 @@
         <div class="row">
             <div class="form-group fifty">
                 <div class=" col-12">
-                    <label for="pfname">Primary Contact First Name:<span class="text-danger">*</span>:</label>
+                    <label for="pfname">Primary Contact First Name:<span class="text-danger ">*</span>:</label>
                     <input  type="text" maxlength="50" placeholder="First name" class="form-control" formControlName="pfname" required>
+                </div>
+                <div *ngIf=" portalForm.controls.pfname.errors" class="text-danger required-label">
+                    <div *ngIf="!portalForm.controls.pfname.untouched">Primary Contact First Name is required</div>
                 </div>
             </div>
             <div class="form-group fifty">
                 <div class=" col-12 ">
-                    <label for="plname">Primary Contact Last Name:<span class="text-danger">*</span>:</label>
+                    <label for="plname">Primary Contact Last Name:<span class="text-danger ">*</span>:</label>
                     <input  type="text"  maxlength="50" placeholder="Last name"  class="form-control" formControlName="plname" required>
+                </div>
+                <div *ngIf=" portalForm.controls.plname.errors" class="text-danger required-label">
+                    <div *ngIf="!portalForm.controls.plname.untouched">Primary Contact Last Name is required</div>
                 </div>
             </div>
         </div>
         <div class="form-group">
             <label for="pjob">Primary Contact Job Title:<span class="text-danger">*</span>:</label>
             <input  type="text" maxlength="20" class="form-control" placeholder="Job title"  formControlName="pjob" required>
+            <div *ngIf=" portalForm.controls.pjob.errors" class="text-danger required-label">
+                <div *ngIf="!portalForm.controls.pjob.untouched">Primary Contact Job title is required</div>
+            </div>
         </div>
         <div class="row">
             <div class="form-group fifty">
@@ -95,19 +116,28 @@
                     <label for="pmail">Primary Contact Email:<span class="text-danger">*</span>:</label>
                     <input  type="text" maxlength="50" class="form-control" placeholder="Primary email id"  formControlName="pmail" required>
                 </div>
+                <div *ngIf=" portalForm.controls.pmail.errors" class="text-danger required-label">
+                    <div *ngIf="!portalForm.controls.pmail.untouched">Primary Contact Email is required</div>
+                </div>
             </div>
             <div class="form-group fifty">
                 <div class=" col-12 ">
                     <label for="pmob">Primary Mobile Number:<span class="text-danger">*</span>:</label>
                     <input  maxlength="12" (keypress)="numberOnly($event)" onpaste="return false" type="text" class="form-control" formControlName="pmob" placeholder="Mobile number"  required>
                 </div>
+                <div *ngIf=" portalForm.controls.pmob.errors" class="text-danger required-label">
+                    <div *ngIf="!portalForm.controls.pmob.untouched">Primary Contact mobile number is required</div>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="form-group fifty">
                 <div class=" col-12 ">
-                    <label for="pex">Primary Phone number & Extension:<span class="text-danger">*</span>:</label>
+                    <label for="pex">Primary Phone number & Extension:<span class="text-danger ">*</span>:</label>
                     <input  type="text" onpaste="return false" maxlength="12" (keypress)="numberOnly($event)" class="form-control" formControlName="pex" placeholder="Phone number with extension"  required>
+                    <div *ngIf=" portalForm.controls.pmob.errors" class="text-danger required-label">
+                        <div *ngIf="!portalForm.controls.pmob.untouched">Primary Contact phone number is required</div>
+                    </div>
                 </div>
             </div>
             <div class="form-group fifty">
