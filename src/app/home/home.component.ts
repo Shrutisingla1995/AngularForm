@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { PolicyService } from '../policy.service';
 import { FormGroup, FormControl, FormBuilder, FormArray } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 
 @Component({
@@ -10,11 +11,31 @@ import { FormGroup, FormControl, FormBuilder, FormArray } from '@angular/forms';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private db: PolicyService,private _formBuilder: FormBuilder) { }
+portalForm:any;
+  constructor(private db: PolicyService,private _formBuilder: FormBuilder) { 
+    this.portalForm = this._formBuilder.group({
+      name: ['', Validators.required],
+      desc: [''],
+      website: ['', Validators.required],
+      businessOwn: ['', Validators.required],
+      businessStruc: ['', Validators.required],
+      straddress1 :[''],
+      straddress2: [''],
+      city: [''],
+      state: [''],
+      pfname:['', Validators.required],
+      plname:['', Validators.required],
+      pjob:['', Validators.required],
+      pmail:['', Validators.required],
+      pex:['', Validators.required],
+      pfax:[''],
+      pmob:['', Validators.required],
+      labourType:[''],
+    })
+  }
 //initializing
   fileToUpload: File = null;
-  Form: FormGroup;
+ 
   labourTypes = [
     {id: 1, name: "Contingent Workforce", checked: false},
     {id: 2, name: "Contract to hire", checked: false},
@@ -26,7 +47,7 @@ export class HomeComponent implements OnInit {
   labourTypeDisplay = [];
   selectedArray;
   ngOnInit() {
-    this.Form = this._formBuilder.group({
+    this.portalForm = this._formBuilder.group({
       selected: this._formBuilder.array([])
     });
     this.labourTypeDisplay = this.labourTypes.map(x => Object.assign({}, x));
@@ -56,7 +77,7 @@ export class HomeComponent implements OnInit {
   }
   // on selecting checkboxes- labour type
   onSelect(data: number, isChecked: boolean) {
-    this.selectedArray = <FormArray>this.Form.controls.selected;
+    this.selectedArray = <FormArray>this.portalForm.controls.selected;
     if(isChecked) {
       this.selectedArray.push(new FormControl(data));
     } else {
