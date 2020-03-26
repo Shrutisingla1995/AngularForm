@@ -30,7 +30,8 @@ portalForm:any;
       pex:['', Validators.required],
       pfax:[''],
       pmob:['', Validators.required],
-      labourType: this._formBuilder.array([])
+      labourType: this._formBuilder.array([]),
+      searchInput:['']
     });
     this.labourTypeDisplay = this.labourTypes.map(x => Object.assign({}, x));
   }
@@ -93,9 +94,9 @@ portalForm:any;
     item.checked = isChecked;
    }
    // on search labour type
-  search(searchType): void {
-    this.labourTypeDisplay = this.labourTypes.filter(function(tag) {
-      return tag.name.toLowerCase().indexOf(searchType) >= 0;
+  search(): void {
+    this.labourTypeDisplay = this.labourTypes.filter((tag)=>  {
+      return tag.name.toLowerCase().indexOf(this.portalForm.value.searchInput) >= 0;
     });
   }
 
