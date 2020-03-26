@@ -69,18 +69,18 @@ portalForm:any;
   onSubmit(form: NgForm,event) {
     console.log('Your form data : ', form.value);
     event.preventDefault();
-    // if(this.portalForm.valid){
+    if(this.portalForm.valid){
       this.db.postForm(form.value).then(
         res => {
           alert('Successful!');
         }
       )
-    // }else{
-    //   alert('Please fill the required details *');
-    // }
+    }else{
+      alert('Please fill the required details *');
+    }
   }
   // on selecting checkboxes- labour type
-  onSelect(data: number, isChecked: boolean) {
+  onSelect(data: String, isChecked: boolean) {
     this.selectedArray = <FormArray>this.portalForm.controls.selected;
     if(isChecked) {
       this.selectedArray.push(new FormControl(data));
@@ -89,7 +89,7 @@ portalForm:any;
       this.selectedArray.removeAt(index);
     }
     // keep sync between labourTypes and labourTypeDisplay
-    const item = this.labourTypes.find(item => item.id === data);
+    const item = this.labourTypes.find(item => item.name === data);
     item.checked = isChecked;
    }
    // on search labour type

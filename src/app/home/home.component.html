@@ -169,7 +169,7 @@
         <div class="form-group labour-dropdown col-6">
             <input type="text" placeholder="Search labour type here" formControlName="labourType" (ngModelChange) = "search(searchType)" >
             <div *ngFor="let type of labourTypeDisplay">
-                <input type="checkbox" (change)="onSelect(type.id, $event.target.checked)" [checked]="type.checked">
+                <input type="checkbox" (change)="onSelect(type.name, $event.target.checked)" [checked]="type.checked">
                 <span class="labour-type">{{type.name}}</span>
             </div>
         </div>
