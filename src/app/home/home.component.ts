@@ -88,7 +88,6 @@ export class HomeComponent implements OnInit {
   // on selecting checkboxes- labour type
   onSelect(data: number, isChecked: boolean) {
     this.selectedArray = <FormArray>this.Form.controls.selected;
-
     if(isChecked) {
       this.selectedArray.push(new FormControl(data));
     } else {

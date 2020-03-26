@@ -1,6 +1,6 @@
 <div class="container home-portal">
     <h1><img src="../assets/flowericon.PNG" />ABC Portal</h1>
-    <form #portalForm = "ngForm" (ngSubmit)="onSubmit(portalForm)">
+    <form #portalForm = "ngForm" ngNativeValidate (submit)="onSubmit(portalForm)">
         <div class="form-group">
             <h3>Company Detail</h3>
             <label for="name">Company Name<span class="text-danger">*</span>:</label>
