@@ -88,7 +88,7 @@ portalForm:any;
       this.db.postForm(form.value).then(
         res => {
           alert('Successful!');
-          this.portalForm = {};
+          this.portalForm.reset();
         }
       )
     }else{
