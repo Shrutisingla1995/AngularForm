@@ -26,7 +26,10 @@ export class PolicyService {
         addr2:value.straddress2,
         business_own:value.businessOwn,
         business_struc:value.businessStruc,
-        labour_type:value.labourType
+        labour_type:value.labourType,
+        articles:value.articles,
+        certificates:value.certificates,
+        evidence:value.evidence
       });
     }
 }

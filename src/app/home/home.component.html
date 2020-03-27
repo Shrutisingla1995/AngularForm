@@ -152,17 +152,23 @@
         <div class="doc-name">
             <i class="fa fa-file-alt"></i>&nbsp;Articles of incorporation
              <label for="upload1"><i class="fa fa-download" title="Upload"></i></label>
-             <input type="file" id="upload1" #photo accept="image/*" >
+             <input type="file" formControlName="articles" id="upload1" #photo accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
+             text/plain, application/pdf, image/*" >
+             <span class="uploaded col-4" *ngIf="articles.value">{{articles.value}}</span>
         </div>
         <div class="doc-name">
             <i class="fa fa-file-alt"></i>&nbsp;Certificate good standing
             <label for="upload2"><i class="fa fa-download" title="Upload"></i></label>
-            <input type="file" id="upload2" #photo accept="image/*">        
+            <input type="file" formControlName="certificates"  id="upload2"  #photo accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
+            text/plain, application/pdf, image/*">
+            <span class="uploaded col-4" *ngIf="certificates.value">{{certificates.value}}</span>        
         </div>
         <div class="doc-name">
             <i class="fa fa-file-alt"></i>&nbsp;Evidence of Insurance 
             <label for="upload3"><i class="fa fa-download" title="Upload"></i></label>
-            <input type="file" id="upload3" #photo accept="image/*" >      
+            <input type="file" id="upload3" formControlName="evidence" #photo accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
+            text/plain, application/pdf, image/*" >   
+            <span class="uploaded col-4" *ngIf="evidence.value">{{evidence.value}}</span> 
         </div>
         <hr />
         <h3>Select Labour types</h3>

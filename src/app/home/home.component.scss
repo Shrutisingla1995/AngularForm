@@ -40,6 +40,20 @@
         input{
             display: none;
         }
+        .uploaded{
+            color: blue;
+            font-size: 14px;
+            background: white;
+            padding: 3px;
+            border-radius: 10px;
+            max-width: 300px;
+            overflow: hidden;
+            white-space: pre;
+            display: inline-block;
+            vertical-align: middle;
+            text-overflow: ellipsis;
+            width:auto;
+        }
         .fa{
             &:hover{
                 cursor: pointer;

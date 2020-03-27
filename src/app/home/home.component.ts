@@ -12,6 +12,7 @@ import { Validators } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 portalForm:any;
+
   constructor(private db: PolicyService,private _formBuilder: FormBuilder) { 
     this.portalForm = this._formBuilder.group({
       name: ['', Validators.required],
@@ -30,11 +31,25 @@ portalForm:any;
       pex:['', Validators.required],
       pfax:[''],
       pmob:['', Validators.required],
+      articles:[''],
+      certificates:[''],
+      evidence:[''],
       labourType: this._formBuilder.array([]),
       searchInput:['']
     });
     this.labourTypeDisplay = this.labourTypes.map(x => Object.assign({}, x));
+    
   }
+  get articles(): any { 
+    return this.portalForm.get('articles');
+   }
+   get certificates(): any { 
+    return this.portalForm.get('certificates');
+   }
+   get evidence(): any { 
+    return this.portalForm.get('evidence');
+   }
+
 //initializing
   fileToUpload: File = null;
  
