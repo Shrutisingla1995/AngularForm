@@ -12,7 +12,7 @@ import { Validators } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 portalForm:any;
-
+emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
   constructor(private db: PolicyService,private _formBuilder: FormBuilder) { 
     this.portalForm = this._formBuilder.group({
       name: ['', Validators.required],

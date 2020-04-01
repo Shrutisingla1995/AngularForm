@@ -32,5 +32,41 @@ export class PolicyService {
         evidence:value.evidence
       });
     }
-}
+    getList(): Observable<any> {
+      return new Observable((observer) => {
+         this.ref.get().then((res) => {
+           let users = [];
+           res.forEach(doc => {
+             let data = doc.data();
+             users.push({
+              c_name: data.c_name,
+              c_desc: data.c_desc,
+              c_site: data.c_site,
+              city:data.city,
+              state:data.state,
+              pfname:data.pfname,
+              plname:data.plname,
+              pmail:data.pmail,
+              pj_title:data.pj_title,
+              p_ex:data.pex,
+              p_fax:data.pfax,
+              pmob:data.pmob,
+              addr1:data.straddress1,
+              addr2:data.straddress2,
+              business_own:data.business_own,
+              business_struc:data.business_struc,
+              labour_type:data.labourType,
+              articles:data.articles,
+              certificates:data.certificates,
+              evidence:data.evidence
+             })
+          });
+          observer.next(users);
+        });
+      });
+    }
+      
+  }
+    
+
 

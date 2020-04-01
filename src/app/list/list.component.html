@@ -1,0 +1,23 @@
+  <h3>Submissions</h3>
+  <div class="table-responsive container">
+    <table class="table table-striped">
+        <thead class="black white-text">
+          <tr>
+            <th *ngFor="let head of heads" scope="col">{{head}} </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr mdbTableCol *ngFor="let user of users">
+                <th scope="row">{{user.c_name ? user.c_name : '-'}}</th>
+                <td>{{user.c_site ? user.c_site : '-'}}</td>
+                <td>{{user.pfname ? user.pfname : '-'}}</td>
+                <td>{{user.plname ? user.plname : '-'}}</td>
+                <td>{{user.pmail ? user.pmail : '-'}}</td>
+                <td>{{user.pj_title ? user.pj_title : '-'}}</td>
+                <td>{{user.pmob ? user.pmob : '-'}}</td>
+                <td>{{user.business_own ? user.business_own : '-'}}</td>
+                <td>{{user.business_struc ? user.business_struc : '-'}}</td>
+        </tbody>
+      </table>
+  </div>
+  

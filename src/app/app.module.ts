@@ -13,12 +13,14 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { GoogleplaceDirective } from './google-place.directive';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     GoogleplaceDirective,
+    ListComponent,
     
   ],
   imports: [

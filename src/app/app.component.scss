@@ -1,0 +1,20 @@
+nav{
+    background: black;
+    padding: 15px;
+    a{
+        background: #f1f1f1;
+        color:black;
+        padding: 7px 10px;
+        margin: 5px;
+        border-radius: 5px;
+        font-size: 14px;
+        &:hover{
+            text-decoration: none;
+            color:blueviolet;
+        }
+        &.active{
+            color:white;
+            background: grey;
+        }
+    }
+}
