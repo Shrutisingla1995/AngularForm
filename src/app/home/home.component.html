@@ -117,7 +117,8 @@
                     <input  type="text" maxlength="50" class="form-control" placeholder="Primary email id"  formControlName="pmail" required>
                 </div>
                 <div *ngIf=" portalForm.controls.pmail.errors" class="text-danger required-label">
-                    <div *ngIf="!portalForm.controls.pmail.untouched">Primary Contact Email is required</div>
+                    <div *ngIf="portalForm.controls.pmail.errors.required && !portalForm.controls.pmail.untouched">Primary Contact Email is required</div>
+                    <div *ngIf="portalForm.controls.pmail.errors.email">Primary Contact Email is not valid</div>
                 </div>
 
             </div>

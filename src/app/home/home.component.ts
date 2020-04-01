@@ -3,6 +3,7 @@ import {NgForm} from '@angular/forms';
 import { PolicyService } from '../policy.service';
 import { FormGroup, FormControl, FormBuilder, FormArray,ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { Validators } from '@angular/forms';
 export class HomeComponent implements OnInit {
 portalForm:any;
 emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-  constructor(private db: PolicyService,private _formBuilder: FormBuilder) { 
+  constructor(private db: PolicyService,private _formBuilder: FormBuilder,private router: Router) { 
     this.portalForm = this._formBuilder.group({
       name: ['', Validators.required],
       desc: [''],
@@ -27,7 +28,7 @@ emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
       pfname:['', Validators.required],
       plname:['', Validators.required],
       pjob:['', Validators.required],
-      pmail:['', Validators.required],
+      pmail:['', [Validators.required, Validators.email]],
       pex:['', Validators.required],
       pfax:[''],
       pmob:['', Validators.required],
@@ -87,8 +88,8 @@ emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
     if(this.portalForm.valid){
       this.db.postForm(form.value).then(
         res => {
-          alert('Successful!');
           this.portalForm.reset();
+          this.router.navigate(['/submissions']);
         }
       )
     }else{
