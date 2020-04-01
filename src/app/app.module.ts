@@ -14,6 +14,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { GoogleplaceDirective } from './google-place.directive';
 import { ListComponent } from './list/list.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ListComponent } from './list/list.component';
     HomeComponent,
     GoogleplaceDirective,
     ListComponent,
+    LoaderComponent,
     
   ],
   imports: [

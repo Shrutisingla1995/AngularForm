@@ -19,5 +19,8 @@
                 <td>{{user.business_struc ? user.business_struc : '-'}}</td>
         </tbody>
       </table>
+      <div *ngIf="!users">
+        <app-loader></app-loader>
+    </div>
   </div>
   
