@@ -10,6 +10,7 @@ import { LoaderComponent } from '../loader/loader.component';
 export class ListComponent implements OnInit {
   constructor(private db: PolicyService,) { }
   users:{};
+  loading:boolean;
   heads = [ 
     'Company Name',
     'Website',
@@ -24,8 +25,10 @@ export class ListComponent implements OnInit {
      this.getUsers();
     }  
     getUsers() {
+      this.loading = true;
       this.db.getList().subscribe(res => {
           this.users = res;
+          this.loading = false;
       });
     } 
 
